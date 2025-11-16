@@ -10,6 +10,12 @@ pub fn main() !void {
     while (true) {
         std.debug.print("enter a command: ", .{});
         const cmd = try stdin.takeDelimiter('\n');
+        if (std.mem.eql(u8, cmd.?, "quit")) {
+            return;
+        }
+        if (std.mem.eql(u8, cmd.?, "exit")) {
+            return;
+        }
         std.debug.print("Your command is: {?s}\n", .{cmd});
     }
 }
